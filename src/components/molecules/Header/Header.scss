@@ -1,0 +1,21 @@
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 150px;
+
+    .logo {
+        margin: 350px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .button-wrapper {
+        margin: 280px;
+        display: flex;
+    }
+}
+
+
+
