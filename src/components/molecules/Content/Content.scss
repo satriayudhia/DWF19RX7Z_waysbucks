@@ -2,7 +2,8 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 85%;
+    background-color: white;
 }
 
 .let-order {
@@ -21,13 +22,14 @@
     color: #BD0707;
 }
 
-.product-wrapper {
+.product-list {
+    position: absolute;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: start;
-    margin-left: 15px;
-    left: 10%;
+    left: 25%;
+    margin-right: auto;
 }
 
 
