@@ -1,5 +1,5 @@
 import React from 'react'
-import {ReactComponent as Jumbotron} from '../../../assets/images/Jumbotron.svg'
+import Jumbotron from '../../../assets/images/Jumbotron-login.png'
 import './Content.scss'
 import Product from '../../atoms/Product'
 import Products from '../../../API/Products'
@@ -8,7 +8,7 @@ const Content = () => {
     return (
         <div>
             <div className="jumbotron">
-                <Jumbotron />
+                <img src={Jumbotron} alt="Jumbotron" />
             </div>  
             <p className="let-order">Let's Order</p>
             <div className="product-list">

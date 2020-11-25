@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import {Modal} from 'react-bootstrap'
-import Header from '../../components/molecules/Header'
 import Content from '../../components/molecules/Content'
-import './Landing.scss'
+import './LandingGuest.scss'
 import Register from '../Register'
 import Login from '../Login'
 import {ReactComponent as Logo} from '../../assets/logos/Logo.svg'
@@ -10,7 +9,7 @@ import ButtonLandingLogin from '../../components/atoms/ButtonLandingLogin'
 import ButtonLandingRegister from '../../components/atoms/ButtonLandingRegister'
 import Gap from '../../components/atoms/Gap'
 
-const Landing = () => {
+const LandingGuest = () => {
     const [loginShow, setLoginShow] = useState(false)
     const [registerShow, setRegisterShow] = useState(false)
     return (
@@ -52,4 +51,4 @@ const Landing = () => {
     )
 }
 
-export default Landing
+export default LandingGuest

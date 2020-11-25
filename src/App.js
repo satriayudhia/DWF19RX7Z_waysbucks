@@ -1,9 +1,10 @@
 import './App.css';
-import Landing from './pages/Landing'
+import LandingGuest from './pages/LandingGuest'
+import LandingLogin from './pages/LandingLogin'
 
 function App() {
   return (
-    <Landing />
+    <LandingLogin />
   );
 }
 
