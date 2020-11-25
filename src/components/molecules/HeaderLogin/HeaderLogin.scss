@@ -1,22 +1,17 @@
-.header-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    height: 150px;
-
-    .logo {
-        margin: 350px;
-        width: 80px;
-        height: 80px;
-    }
-
-    .button-wrapper {
-        margin: 280px;
-        display: flex;
-        align-items: center;
-    }
+.logo-header{
+    margin-top: 80px;
+    padding-left: 20%;
 }
 
+.profile-header {
+    padding-right: 20%;
+    align-self: center;
+    text-align: end;
+    margin-top: 80px;
+}
+
+.avatar-header {
+    margin-left: 36px;
+}
 
 

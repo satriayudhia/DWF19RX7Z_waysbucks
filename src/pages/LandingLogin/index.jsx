@@ -7,11 +7,9 @@ import HeaderLogin from '../../components/molecules/HeaderLogin'
 
 const LandingGuest = () => {
     return (
-            <div className="landing-wrapper-login">
+            <div>
                 <div>
-                    <div className="button-wrapper-login">
-                        <HeaderLogin/>
-                    </div>
+                    <HeaderLogin/>
                 </div>
                 <div className="content-wrapper-login">
                     <Content /> 
