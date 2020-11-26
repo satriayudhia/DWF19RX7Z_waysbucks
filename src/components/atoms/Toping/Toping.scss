@@ -1,0 +1,31 @@
+.toping-wrapper {
+    margin-right: 10px;
+    min-width: 150px;
+
+    .img-toping-wrapper {
+        text-align: center;
+        padding: 20px;
+        .img-toping {
+            width: 75px;
+            height: 85px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+    }
+    
+    .title-toping-wrapper {
+        padding: 10px;
+        .title-toping {
+            font-family: Avenir;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 19px;
+            text-align: center;
+            color: #BD0707;
+            cursor: pointer;
+        }
+    }
+}
+
+

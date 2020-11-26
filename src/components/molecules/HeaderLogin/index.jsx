@@ -12,10 +12,10 @@ const HeaderLogin = () => {
         <Container fluid>
             <Row>
                 <Col sm={8} className="logo-header">
-                    <Logo />
+                    <Logo className="logo-header-cursor"/>
                 </Col>
                 <Col sm={4} className="profile-header">
-                    <Cart />
+                    <Cart className="cart-header"/>
                     <Avatar className="avatar-header"/>
                 </Col>
             </Row>
