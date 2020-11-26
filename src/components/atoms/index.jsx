@@ -8,7 +8,9 @@ import InputTextPayment from './InputTextPayment'
 import InputTextArea from './InputTextArea'
 import Toping from './Toping'
 import ProductCart from './ProductCart'
+import ProductTransaction from './ProductTransaction'
 
 
 export {ButtonLandingLogin, ButtonLandingRegister, Gap, 
-    Product, Button, InputText, Toping, ProductCart, InputTextPayment, InputTextArea}
+    Product, Button, InputText, Toping, ProductCart, InputTextPayment,
+     InputTextArea, ProductTransaction}
