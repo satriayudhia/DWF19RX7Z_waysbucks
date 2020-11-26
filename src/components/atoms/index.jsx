@@ -9,8 +9,11 @@ import InputTextArea from './InputTextArea'
 import Toping from './Toping'
 import ProductCart from './ProductCart'
 import ProductTransaction from './ProductTransaction'
+import PrivateRoute from './PrivateRoute'
+import ProfileBtn from './ProfileBtn'
+import LogoutBtn from './LogoutBtn'
 
 
 export {ButtonLandingLogin, ButtonLandingRegister, Gap, 
     Product, Button, InputText, Toping, ProductCart, InputTextPayment,
-     InputTextArea, ProductTransaction}
+     InputTextArea, ProductTransaction, PrivateRoute, ProfileBtn, LogoutBtn}

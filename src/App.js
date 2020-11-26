@@ -1,4 +1,5 @@
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {Context} from './config/Context'
 import LandingGuest from './pages/LandingGuest'
 import LandingLogin from './pages/LandingLogin'
 import Detail from './pages/Detail'
@@ -7,7 +8,17 @@ import MyProfile from './pages/MyProfile'
 
 function App() {
   return (
-    <MyProfile />
+    <Context>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={LandingGuest} />
+          <Route exact path="/home" component={LandingLogin} />
+          <Route exact path="/detail" component={Detail} />
+          <Route exact path="/cart" component={Cart} />
+          <Route exact path="/profile" component={MyProfile} />
+        </Switch>
+      </Router>
+    </Context>
   );
 }
 
