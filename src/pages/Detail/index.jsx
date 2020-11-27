@@ -1,4 +1,5 @@
 import React from 'react'
+import {useHistory} from 'react-router-dom'
 import './Detail.scss'
 import HeaderLogin from '../../components/molecules/HeaderLogin'
 import Container from 'react-bootstrap/Container'
@@ -10,6 +11,12 @@ import Button from '../../components/atoms/Button'
 import Topings from '../../API/Topings'
 
 const Detail = () => {
+    const router = useHistory();
+
+    const toCart = () => {
+      router.push("/cart")
+    }
+
     return (
         <Container fluid>
             <HeaderLogin/>
@@ -40,7 +47,7 @@ const Detail = () => {
                         <Col><p>Rp. 27.000</p></Col>
                     </Row>
                     <Row>
-                        <Button className="btn-add-cart" title="Add Cart" />
+                        <Button onClick={toCart} className="btn-add-cart" title="Add Cart" />
                     </Row>
                 </Col>
             </Row>

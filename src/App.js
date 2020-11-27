@@ -5,6 +5,7 @@ import LandingLogin from './pages/LandingLogin'
 import Detail from './pages/Detail'
 import Cart from './pages/Cart'
 import MyProfile from './pages/MyProfile'
+import AddProduct from './pages/AddProduct'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/detail" component={Detail} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/profile" component={MyProfile} />
+          <Route exact path="/add-product" component={AddProduct} />
         </Switch>
       </Router>
     </Context>
