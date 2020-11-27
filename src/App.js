@@ -6,6 +6,7 @@ import Detail from './pages/Detail'
 import Cart from './pages/Cart'
 import MyProfile from './pages/MyProfile'
 import AddProduct from './pages/AddProduct'
+import AddToping from './pages/AddToping'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/profile" component={MyProfile} />
           <Route exact path="/add-product" component={AddProduct} />
+          <Route exact path="/add-toping" component={AddToping} />
         </Switch>
       </Router>
     </Context>
