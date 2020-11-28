@@ -7,6 +7,7 @@ import Cart from './pages/Cart'
 import MyProfile from './pages/MyProfile'
 import AddProduct from './pages/AddProduct'
 import AddToping from './pages/AddToping'
+import Admin from './pages/Admin'
 
 function App() {
   return (
@@ -15,11 +16,12 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingGuest} />
           <Route exact path="/home" component={LandingLogin} />
-          <Route exact path="/detail" component={Detail} />
+          <Route exact path="/detail/:id" component={Detail} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/profile" component={MyProfile} />
           <Route exact path="/add-product" component={AddProduct} />
           <Route exact path="/add-toping" component={AddToping} />
+          <Route exact path="/admin" component={Admin} />
         </Switch>
       </Router>
     </Context>

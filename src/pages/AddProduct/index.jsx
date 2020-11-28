@@ -3,7 +3,7 @@ import './AddProduct.scss'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import HeaderLogin from '../../components/molecules/HeaderLogin'
+import HeaderAdmin from '../../components/molecules/HeaderAdmin'
 import InputTextProduct from '../../components/atoms/InputTextProduct'
 import InputNumberProduct from '../../components/atoms/InputNumberProduct'
 import InputFile from '../../components/atoms/InputFile'
@@ -13,7 +13,7 @@ import Logo from '../../assets/logos/logoProduct.png'
 const AddProduct = () => {
     return (
         <Container fluid>
-            <HeaderLogin/>
+            <HeaderAdmin/>
             <Row className="form-product-wrapper">
                 <Col>
                     <Row className="form-header-product" >Product</Row>

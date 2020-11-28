@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 import {Modal} from 'react-bootstrap'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -14,6 +15,21 @@ import './Cart.scss'
 
 const Cart = () => {
     const [payStatus, setPayStatus] = useState(false)
+    const [dataTransaction, setDataTransaction] = useState([])
+
+    useEffect(() => {
+        axios.get('http://localhost:3000/transactions')
+            .then(function (response) {
+                // handle success
+                setDataTransaction(response.data)
+                console.log('data transaksi', dataTransaction)
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+
+    }, [])
     return (
         <Container fluid className="cart-wrapper">
             <HeaderLogin />
@@ -25,8 +41,11 @@ const Cart = () => {
             </Row>
             <Row>
                 <Col sm={4} className="left-cart-detail">
-                    <ProductCart />
-                    <ProductCart />
+                    {
+                        dataTransaction.map((transaction, index) => (
+                            <ProductCart key={index} name={transaction.nameProduct} price={transaction.price} img={transaction.imgProduct} />
+                        ))
+                    }
                     <Row>
                         <Col className="garis" />
                     </Row>

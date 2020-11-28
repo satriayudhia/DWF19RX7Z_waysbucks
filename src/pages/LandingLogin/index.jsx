@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {AppContext} from '../../config/Context'
 import Content from '../../components/molecules/Content'
 import './LandingLogin.scss'
-import {ReactComponent as Logo} from '../../assets/logos/Logo.svg'
 import HeaderLogin from '../../components/molecules/HeaderLogin'
 
 
-const LandingGuest = () => {
+const LandingLogin = () => {
+    const [state] = useContext(AppContext);
+    console.log('user Id', state.idUser)
     return (
             <div>
                 <div>
@@ -18,4 +20,4 @@ const LandingGuest = () => {
     )
 }
 
-export default LandingGuest
+export default LandingLogin

@@ -1,11 +1,20 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Jumbotron from '../../../assets/images/Jumbotron-login.png'
 import './Content.scss'
 import Product from '../../atoms/Product'
-import Products from '../../../API/Products'
 
 const Content = () => {
-    return (
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:3000/products')
+        .then(response => response.json())
+        .then(json => {
+            setProducts(json)
+        })
+    }, [])
+
+    return !products ? (<h1>Loading...</h1>) : (
         <div>
             <div className="jumbotron">
                 <img src={Jumbotron} alt="Jumbotron" />
@@ -13,8 +22,8 @@ const Content = () => {
             <p className="let-order">Let's Order</p>
             <div className="product-list">
                 {
-                    Products.map((product) => (
-                        <Product key={product.id} name={product.name} price={product.price} img={product.img} />
+                    products.map((product) => (
+                        <Product key={product.id} id={product.id} name={product.name} price={product.price} img={product.img} />
                     ))
                 }
             </div>

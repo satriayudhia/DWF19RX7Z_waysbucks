@@ -3,7 +3,7 @@ import './Button.scss'
 
 const Button = ({title, ...rest}) => {
     return (
-        <button className="btn" {...rest}>{title}</button>
+        <button type="submit" className="btn" {...rest}>{title}</button>
     )
 }
 
