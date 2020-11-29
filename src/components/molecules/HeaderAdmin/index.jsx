@@ -20,7 +20,7 @@ const HeaderAdmin = () => {
     const router = useHistory();
 
     const toHome = () => {
-        router.push("/home")
+        router.push("/admin")
     }
     const toAddProduct = () => {
         router.push("/add-product")

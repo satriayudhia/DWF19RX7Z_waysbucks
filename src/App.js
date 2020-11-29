@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {Context} from './config/Context'
+import PrivateRoute from './config/PrivateRoute'
 import LandingGuest from './pages/LandingGuest'
 import LandingLogin from './pages/LandingLogin'
 import Detail from './pages/Detail'
@@ -15,13 +16,13 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={LandingGuest} />
-          <Route exact path="/home" component={LandingLogin} />
-          <Route exact path="/detail/:id" component={Detail} />
-          <Route exact path="/cart" component={Cart} />
-          <Route exact path="/profile" component={MyProfile} />
-          <Route exact path="/add-product" component={AddProduct} />
-          <Route exact path="/add-toping" component={AddToping} />
-          <Route exact path="/admin" component={Admin} />
+          <PrivateRoute exact path="/home" component={LandingLogin} />
+          <PrivateRoute exact path="/detail/:id" component={Detail} />
+          <PrivateRoute exact path="/cart" component={Cart} />
+          <PrivateRoute exact path="/profile" component={MyProfile} />
+          <PrivateRoute exact path="/add-product" component={AddProduct} />
+          <PrivateRoute exact path="/add-toping" component={AddToping} />
+          <PrivateRoute exact path="/admin" component={Admin} />
         </Switch>
       </Router>
     </Context>

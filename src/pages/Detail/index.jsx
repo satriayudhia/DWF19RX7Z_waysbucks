@@ -48,7 +48,7 @@ const Detail = (props) => {
         )
     }, [])
 
-    const router = useHistory();
+    const router = useHistory()
 
     const sumTotal = (top) => {
         const topNumber = parseInt(top)
@@ -61,7 +61,7 @@ const Detail = (props) => {
             method: 'post',
             url: 'http://localhost:3000/transactions',
             data: {
-                idTransaction: timestamp,
+                id: timestamp,
                 idUser: state.idUser,
                 idProduct: product.id,
                 nameProduct: product.name,
@@ -70,7 +70,6 @@ const Detail = (props) => {
                 price: product.price
             }
           })
-
         router.push("/cart")
     }
 
@@ -97,15 +96,15 @@ const Detail = (props) => {
                         {
                             topings.map((toping) => (
                                 <div className="toping-wrapper">
-                                    <div className="img-toping-wrapper">
-                                        <label for={toping.name}>
+                                    <div className="round">
+                                         <label for={toping.name}>
                                             <img className="img-toping" src={toping.img} alt="toping" />
                                         </label>
-                                        <input onClick={(top) => sumTotal(toping.price)} id={toping.name} className="checkbox-toping" type="checkbox"/>
+                                        <input type="checkbox" id={toping.name} />
+                                        <label className="label-checkbox" for={toping.name}></label>
                                     </div>
                                     <div className="title-toping-wrapper">
                                         <p className="title-toping">{toping.name}</p>
-                                        <p className="title-toping">{toping.price}</p>
                                     </div>
                                 </div>
                             ))
@@ -120,7 +119,7 @@ const Detail = (props) => {
                     </Row>
                 </Col>
             </Row>
-            <pre>{JSON.stringify(state, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
         </Container>
     )
 }

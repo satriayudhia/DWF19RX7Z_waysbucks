@@ -20,20 +20,6 @@
       "email": "admin@admin.com",
       "password": "12345678",
       "isAdmin": true
-    },
-    {
-      "id": 1606549466035,
-      "name": "usernew",
-      "email": "newuser@user.com",
-      "password": "12345",
-      "isAdmin": false
-    },
-    {
-      "id": 1606549519577,
-      "name": "newusergmail",
-      "email": "newuser2@gmail.com",
-      "password": "12345",
-      "isAdmin": false
     }
   ],
   "topings": [
@@ -174,46 +160,5 @@
       "action": "Ceklis"
     }
   ],
-  "transactions": [
-    {
-      "idTransaction": 1606570529423,
-      "idUser": 1,
-      "idProduct": 1,
-      "nameProduct": "Ice Coffe Palm Sugar",
-      "imgProduct": "https://s3-alpha-sig.figma.com/img/82f2/db53/fac76fcc5fc42321f68aa860e9145f4f?Expires=1607299200&Signature=cviytiuLkgWgVRMH-VSLs8PHyeIb~tn0EXkd8CG4rCL2eb~TwzsgjFet8h6jp3C1HQ5OY2Dz3ewbo75IuWo5plZ3zWfrerS~1ilVVxXmCLm49gPQrCEDJF8txk2Ml6BZmdRsaooeEI4KtnZpGQklfTgjDFYA5fYMxz3oSYgz7JJ7nKP9WSk9YBd1TjfZx2ahzbfwICHyqC6GSLDP9UpG5Gve9mybn~G3D~~BuddpSHRhvhvd~bWXP1kewDM1zO-Q9LQTqzjgDew7AgkhCzLvXopl2QMg1RfDtzrhmL33ov2tC574oVARbeMOhjSsOKrqemB-yIdVc5A8lDbqEPjGKw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-      "topings": [],
-      "price": 27000,
-      "id": 1
-    },
-    {
-      "idTransaction": 1606571028351,
-      "idUser": 1,
-      "idProduct": 1,
-      "nameProduct": "Ice Coffe Palm Sugar",
-      "imgProduct": "https://s3-alpha-sig.figma.com/img/82f2/db53/fac76fcc5fc42321f68aa860e9145f4f?Expires=1607299200&Signature=cviytiuLkgWgVRMH-VSLs8PHyeIb~tn0EXkd8CG4rCL2eb~TwzsgjFet8h6jp3C1HQ5OY2Dz3ewbo75IuWo5plZ3zWfrerS~1ilVVxXmCLm49gPQrCEDJF8txk2Ml6BZmdRsaooeEI4KtnZpGQklfTgjDFYA5fYMxz3oSYgz7JJ7nKP9WSk9YBd1TjfZx2ahzbfwICHyqC6GSLDP9UpG5Gve9mybn~G3D~~BuddpSHRhvhvd~bWXP1kewDM1zO-Q9LQTqzjgDew7AgkhCzLvXopl2QMg1RfDtzrhmL33ov2tC574oVARbeMOhjSsOKrqemB-yIdVc5A8lDbqEPjGKw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-      "topings": [],
-      "price": 27000,
-      "id": 2
-    },
-    {
-      "idTransaction": 1606571893503,
-      "idUser": 1,
-      "idProduct": 4,
-      "nameProduct": "Clepon Coffe",
-      "imgProduct": "https://s3-alpha-sig.figma.com/img/455f/d2e8/c6f3c8f48b267cbb65c369485f9a27ad?Expires=1607299200&Signature=deiPeQJ2gUwLJfKbQMbHr2Z~4U3d0J0qINUKZ0j7lhmXLWbaogNfknlX51sb6s079VinDFckK6ZuLH0Abjq6xB-a6AQ19eCkisF9URuCa0sllgSb2b2rzT6YaNlguLY6JIo0HTxfHdcM9txNe6TVjMV9k8F8lQsF-Aw3KP71gStHQWV0qOWz-cidZLEwILJztMcY6EmdRHzBrs3FzSL5T~aHm2j~HUMUm1zGVmf31NYqNvbPiZ1IhAm~9-V66239CmpmKkWHdWNv5di7yoc3XP45czm-lZ33soCc2KB8OfLKcjgvywCvfHHGGBl0lXZ~1YDd9LTR-GDcKmoc-alVYw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-      "topings": [],
-      "price": 28000,
-      "id": 3
-    },
-    {
-      "idTransaction": 1606571901375,
-      "idUser": 1,
-      "idProduct": 8,
-      "nameProduct": "Hanami Latte",
-      "imgProduct": "https://s3-alpha-sig.figma.com/img/0655/9843/7bb2fcf50294d6e214bde156ddc7046d?Expires=1607299200&Signature=F6FbUM1W~HSi7kC-ABXgyVMcMREI5v1PNAv5gl1orWbXiDeduq3E89ZGiawOLUIsP5o8TMRIUAQZiOG4rsR5fyDEI3kXhVakMYnrsk-pT--khI1IWXRS446oI-JSJVZ8CNDutmjKpYXampTOIROeuc~-iFeasqKeapMANDLZ93s-~u7M02As~RhF-aUTUh1o325QrGIH-0yW9YxyKsudNJ8FRQgm-4Kj1gSbYHz5ULVsHVpBLigkRsSRcgEso0ZjPHRL0NQOw4rNe9IN0f~KzrfeH0tWfJVR0fJ4TxH~po40~dCLk~wK4Bxfv58jDtkENwWWudja4eiSYYoQjztKZg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-      "topings": [],
-      "price": 29000,
-      "id": 4
-    }
-  ]
+  "transactions": []
 }

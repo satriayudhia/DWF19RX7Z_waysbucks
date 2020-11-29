@@ -46,6 +46,14 @@
             height: 555px;
             object-fit: cover;
             border-radius: 10px;
+            border: 2px solid #BD0707;
+        }
+
+        .uploading {
+            color: #BD0707;
+            position: absolute;
+            left: 25%;
+            top: 50%;
         }
     
         .logo-add-product {

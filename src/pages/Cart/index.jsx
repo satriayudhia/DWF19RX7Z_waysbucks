@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import {AppContext} from '../../config/Context'
 import axios from 'axios'
 import {Modal} from 'react-bootstrap'
 import Container from 'react-bootstrap/Container'
@@ -14,11 +15,14 @@ import Gap from '../../components/atoms/Gap'
 import './Cart.scss'
 
 const Cart = () => {
+    //Context
+    const [state] = useContext(AppContext)
+
     const [payStatus, setPayStatus] = useState(false)
     const [dataTransaction, setDataTransaction] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:3000/transactions')
+        axios.get(`http://localhost:3000/transactions?idUser=${state.idUser}`)
             .then(function (response) {
                 // handle success
                 setDataTransaction(response.data)
@@ -29,8 +33,9 @@ const Cart = () => {
                 console.log(error);
             })
 
-    }, [])
-    return (
+    }, [dataTransaction])
+
+    return !dataTransaction ? (<h1>Loading...</h1>) : (
         <Container fluid className="cart-wrapper">
             <HeaderLogin />
             <Row>
@@ -43,7 +48,7 @@ const Cart = () => {
                 <Col sm={4} className="left-cart-detail">
                     {
                         dataTransaction.map((transaction, index) => (
-                            <ProductCart key={index} name={transaction.nameProduct} price={transaction.price} img={transaction.imgProduct} />
+                            <ProductCart key={index} idTransaction={transaction.id} name={transaction.nameProduct} price={transaction.price} img={transaction.imgProduct} />
                         ))
                     }
                     <Row>

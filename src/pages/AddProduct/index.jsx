@@ -1,5 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './AddProduct.scss'
+import {useHistory} from 'react-router-dom'
+import axios from 'axios'
+import Modal from 'react-bootstrap/Modal'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -9,8 +12,61 @@ import InputNumberProduct from '../../components/atoms/InputNumberProduct'
 import InputFile from '../../components/atoms/InputFile'
 import Button from '../../components/atoms/Button'
 import Logo from '../../assets/logos/logoProduct.png'
+import Clip from '../../assets/logos/clip.png'
 
 const AddProduct = () => {
+    const [image, setImage] = useState('https://www.brdtex.com/wp-content/uploads/2019/09/no-image.png')
+    const [loading, setLoading] = useState(false)
+    const [product, setProduct] = useState('')
+    const [price, setPrice] = useState('')
+    const [productStatus, setProductStatus] = useState(false)
+
+    const router = useHistory()
+
+    const uploadImage = async e => {
+        const files = e.target.files
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_preset', 'satriayud')
+        setLoading(true)
+        const res = await fetch(
+            'https://api.cloudinary.com/v1_1/satria-img/image/upload',
+            {
+                method: 'POST',
+                body: data
+            }
+        )
+        const file = await res.json()
+        setImage(file.secure_url)
+        setLoading(false)
+    }
+    
+    const submitProduct = e => {
+        e.preventDefault()
+        let timestamp = new Date().getTime()
+        let idProduct = 'PROD' + timestamp
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/products',
+            data: {
+                id: idProduct,
+                name: product,
+                price: price,
+                img: image
+            }
+        })
+        .then (
+            setProduct(null),
+            setPrice(null),
+            setProductStatus(true)
+        )
+    }
+
+    const hideProductStatus = () => {
+        setProductStatus(false)
+        router.push('/admin')
+    }
+
     return (
         <Container fluid>
             <HeaderAdmin/>
@@ -18,17 +74,30 @@ const AddProduct = () => {
                 <Col>
                     <Row className="form-header-product" >Product</Row>
                     <Row>
-                        <InputTextProduct value="Name Product"/>
-                        <InputNumberProduct value="Price"/>
-                        <InputFile/>
-                        <Button className="btn-add-product" title="Add Product"/>
+                        <input onChange={e => setProduct(e.target.value)} className="form-input-product" type="text" placeholder="Product Name" />
+                        <input onChange={e => setPrice(e.target.value)} className="form-number-product" type="number" placeholder="Price" />
+                        <label className="file">
+                            <input onChange={uploadImage} className="file-input" type="file" placeholder="Photo Product"/>
+                            <img src={Clip} alt="upload image" />
+                        </label>
+                        <Button onClick={(e) => submitProduct(e)} className="btn-add-product" title="Add Product"/>
                     </Row>
                 </Col>
                 <Col className="img-product-wrapper">
-                    <img className="img-add-product" src="https://s3-alpha-sig.figma.com/img/4348/8c71/4273019eb029d3a34583371f7000ecba?Expires=1607299200&Signature=MHgd2V8TP9FK0In3Ik199anJJq37eTgSr5W7BrsZ2FB1e5cQuvzH0x85TproA8FPfQI-Jf7~5J1Q-UJCPnuppzSy5WTnkHn4ghB8Cwh-lzvkmlL1YANOxTs33Mqq5CzCAHgBtNEdrNzLdOxfc4QdyzLXTnhVTZkTIaB38XrwwWsMMDij0Y6IWF-RCuNn7CODZI~SX3-uVyjdx~jknE6Ma-ca16xcJ57C5pHbrV5BKz4jWkxMP2u32VUrSnVVDGpG2a2Rw7EC-pFbOX~nu8zQ4lvODW7lo2EkDyE-umnHIRAH2Dumv5XeIFkrxQphl7sKFcooNGrl7jN6DhYpnVWwLw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" alt="image coffe"/>
-                    <img className="logo-add-product" src={Logo} alt="logo waysbucks" />
+                    {
+                        loading ? (<h3 className="uploading">Uploading...</h3>) : (
+                            <img className="img-add-product" src={image} alt="image coffe"/>
+                        )
+                    }
                 </Col>
             </Row>
+            <Modal
+                size="lg"
+                show={productStatus}
+                onHide={() => hideProductStatus()}
+                centered>
+                <Modal.Body className="text-center"><p className="order-status">Product berhasil ditambahkan</p></Modal.Body>
+            </Modal>
         </Container>
     )
 }

@@ -2,7 +2,7 @@
     position: relative;
     margin-top: 15px;
     margin-bottom: 15px;
-    padding-left: 25px;
+    padding-left: 0px;
     .product-trans {
         position: relative;
         border-radius: 10px;
@@ -15,7 +15,7 @@
     .logo-trans {
         position: absolute;
         top: 63%;
-        left: 65%;
+        left: 40%;
         z-index: 2;
         width: 19px;
         height: 19px;
@@ -24,7 +24,7 @@
 }
 
 .detail-trans {
-    padding-left: 50px;
+    padding-left: 30px;
     padding-top: 7%;
     .title-trans{
         font-family: Avenir;

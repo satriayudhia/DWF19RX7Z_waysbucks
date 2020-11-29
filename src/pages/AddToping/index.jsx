@@ -1,4 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
+import Modal from 'react-bootstrap/Modal'
+import axios from 'axios'
 import './AddToping.scss'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -8,26 +11,93 @@ import InputTextProduct from '../../components/atoms/InputTextProduct'
 import InputNumberProduct from '../../components/atoms/InputNumberProduct'
 import InputFile from '../../components/atoms/InputFile'
 import Button from '../../components/atoms/Button'
+import Clip from '../../assets/logos/clip.png'
 import Logo from '../../assets/logos/logoProduct.png'
 
 const AddToping = () => {
+    const [image, setImage] = useState('https://www.brdtex.com/wp-content/uploads/2019/09/no-image.png')
+    const [loading, setLoading] = useState(false)
+    const [product, setProduct] = useState('')
+    const [price, setPrice] = useState('')
+    const [productStatus, setProductStatus] = useState(false)
+
+    const router = useHistory()
+
+    const uploadImage = async e => {
+        const files = e.target.files
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_preset', 'satriayud')
+        setLoading(true)
+        const res = await fetch(
+            'https://api.cloudinary.com/v1_1/satria-img/image/upload',
+            {
+                method: 'POST',
+                body: data
+            }
+        )
+        const file = await res.json()
+        setImage(file.secure_url)
+        setLoading(false)
+    }
+
+    const submitProduct = e => {
+        e.preventDefault()
+        let timestamp = new Date().getTime()
+        let idToping = 'TOP' + timestamp
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/topings',
+            data: {
+                id: idToping,
+                name: product,
+                price: price,
+                img: image
+            }
+        })
+        .then (
+            setProduct(null),
+            setPrice(null),
+            setProductStatus(true)
+        )
+    }
+
+    const hideProductStatus = () => {
+        setProductStatus(false)
+        router.push('/admin')
+    }
+
     return (
         <Container fluid>
             <HeaderAdmin/>
             <Row className="form-toping-wrapper">
                 <Col>
-                    <Row className="form-header-toping" >Product</Row>
+                    <Row className="form-header-toping" >Toping</Row>
                     <Row>
-                        <InputTextProduct value="Name Toping"/>
-                        <InputNumberProduct value="Price"/>
-                        <InputFile/>
-                        <Button className="btn-add-toping" title="Add Product"/>
+                    <input onChange={e => setProduct(e.target.value)} className="form-input-product" type="text" placeholder="Toping Name" />
+                        <input onChange={e => setPrice(e.target.value)} className="form-number-product" type="number" placeholder="Price" />
+                        <label className="file">
+                            <input onChange={uploadImage} className="file-input" type="file" placeholder="Photo Product"/>
+                            <img src={Clip} alt="upload image" />
+                        </label>
+                        <Button onClick={(e) => submitProduct(e)} className="btn-add-toping" title="Add Product"/>
                     </Row>
                 </Col>
                 <Col className="img-toping-wrapper">
-                    <img className="img-add-toping" src="https://s3-alpha-sig.figma.com/img/3dbd/dff1/9f672a3713f55e8efe97e637120fd656?Expires=1607299200&Signature=OzXKK1GOYE5A7oOpi5Ox1T-0VYOmt3uAb0y747Ort~bHTzDwki8R~~ZuyE91znXT0MzS4WVa77pGIHmnT4K4U4Zo1PSj7BRa9GU-S4akbU5wIpb-uBnz~wtnV15-RmQQf9umsVPgSyJdZL4UY7gTn7nxyfA2l4jDkPf9mQou81gUOyoj7XjX5gi0cGTzdQoQ67iDDZvEtJ2nZH6A3HnKjqH66RGHA5bDXo-kQXRG4bOqiJYvqKcfJ-4EEqw7HtQz2~O3u9yBqjayv-wr3~HXndjdvnNQ3kMpQ7WBHnXKE7T6pnjFx3j7PuQ3RXHHLPNsQKguRyUnfxXoPMmFYGFcfA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" alt="image coffe"/>
+                    {
+                        loading ? (<h3 className="uploading">Uploading...</h3>) : (
+                            <img className="img-add-toping" src={image} alt="image toping"/>
+                        )
+                    }    
                 </Col>
             </Row>
+            <Modal
+                size="lg"
+                show={productStatus}
+                onHide={() => hideProductStatus()}
+                centered>
+                <Modal.Body className="text-center"><p className="order-status">Product berhasil ditambahkan</p></Modal.Body>
+            </Modal>
         </Container>
     )
 }

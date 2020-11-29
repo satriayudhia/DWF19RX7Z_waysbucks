@@ -3,7 +3,7 @@ import React, {createContext, useReducer} from 'react'
 export const AppContext = createContext()
 
 const initialState = {
-    isLogin: true,
+    isLogin: false,
     idUser: [],
     carts: []
 }
